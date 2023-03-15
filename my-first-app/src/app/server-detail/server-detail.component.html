@@ -1,0 +1,8 @@
+<div *ngIf="server">
+    <h2>{{server.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{server.id}}</div>
+    <div>
+      <label for="server-name">server name: </label>
+      <input id="server-name" [(ngModel)]="server.name" placeholder="name">
+    </div>  
+</div>
