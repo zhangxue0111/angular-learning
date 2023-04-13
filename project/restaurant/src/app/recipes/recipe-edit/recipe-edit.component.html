@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-12">
+      <form #recipeForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" 
+                    class="btn btn-success"
+                    [disabled]="!recipeForm.valid"
+                    style="margin: 5px 5px 5px 5px;">
+                    Save
+            </button>
+            <button type="button" class="btn btn-danger" style="margin: 5px 5px 5px 5px;">Cancel</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" name="name">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="imagePath">Image URL</label>
+              <input type="text" id="imagePath" class="form-control" name="imagePath" #imagePath>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <img [src]="imagePath.value" class="img-responsive">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                type="text"
+                id="description"
+                class="form-control"
+                rows="6"
+                name="description">
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="row"
+              style="margin-top: 10px;">
+              <div class="col-8">
+                <input type="text" class="form-control" id="name" name="name">
+              </div>
+              <div class="col-2">
+                <input type="number" class="form-control" id="amount" name="amount">
+              </div>
+              <div class="col-2">
+                <button type="button" class="btn btn-danger">Delete</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button type="button" class="btn btn-success" style="margin: 5px 5px 5px 5px;" >Add Ingredient</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

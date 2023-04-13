@@ -1,42 +1,45 @@
-<div class="row">
+<div class="row" style="margin-top: 20px;">
     <div class="col-12">
-        <img [src]="selectedRecipe.imageURL" alt="" class="img-responsive" style="max-height: 300px;">
+        <img [src]="recipe.imageUrl" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 300px;">
     </div>
 </div>
 <div class="row">
     <div class="col-12">
-        <h1>{{ selectedRecipe.name }}</h1>
+        <h1>{{ recipe.name }}</h1>
     </div>
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="col-12">
         <div class="dropdown">
             <button class="dropdown-toggle btn btn-primary" role="button" data-bs-toggle="dropdown">
                 Manage Recipe
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" style="cursor: pointer;">To Shopping List</a></li>
+              <li><a class="dropdown-item" style="cursor: pointer;" (click)="addToShoppingList(recipe.ingredients)">To Shopping List</a></li>
               <li><a class="dropdown-item" style="cursor: pointer;">Edit Recipe</a></li>
               <li><a class="dropdown-item" style="cursor: pointer;">Delete Recipe</a></li>
             </ul>
         </div>
-        <!-- <div class="btn-group dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" role="button">Manage Recipe</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item"></a></li>
-                <li><a class="dropdown-item"></a></li>
-                <li><a class="dropdown-item"></a></li>
-            </ul>
-        </div> -->
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-12">
+        {{ recipe.description }}
     </div>
 </div>
 <div class="row">
     <div class="col-12">
-    {{ selectedRecipe.description }}
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                {{ ingredient.name }} - {{ ingredient.amount }}
+            </li>
+        </ul>
     </div>
 </div>
-<div class="row">
-    <div class="col-12">
-        Ingredients
-    </div>
-</div>
+<button type="button" class="btn btn-success" (click)="goBack()" style="margin: 5px 5px 5px 5px;">Back</button>
+<button type="button" class="btn btn-primary" (click)="addToShoppingList(recipe.ingredients)" 
+        style="margin: 5px 5px 5px 5px;">AddToShopping
+</button>
+<button type="button" class="btn btn-primary" (click)="goToEdit()" style="margin: 5px 5px 5px 5px;">Edit</button>
+<button type="button" class="btn btn-danger" style="margin: 5px 5px 5px 5px;">Delete</button>
+
