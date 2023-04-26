@@ -1,0 +1,33 @@
+<h1>Users</h1>
+<a class="btn btn-sm btn-success mb-2">Add User</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Username</th>
+            <th style="width: 30%">Email</th>
+            <th style="width: 30%">Password</th>
+            <th style="width: 30%">Role</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.role }}</td>
+            <td style="white-space: nowrap">
+                <a class="btn btn-sm btn-primary me-1">Edit</a>
+                <button class="btn btn-sm btn-danger btn-delete-user">
+                    <!-- <span class="spinner-border spinner-border-sm"></span> -->
+                    <span>Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!users">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
